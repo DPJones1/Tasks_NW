@@ -1,35 +1,33 @@
 package services;
 
-public class UserDetailsService {
-    static int[] userIds = {1, 2, 3};
-    static String[] userNames = {"Abraham Ama", "Bob Button", "Carol Carter"};
-    static String[] departments = {"EE", "Trading", "Finance"};
-    static float[] salaries = {30000, 50000, 20000};
+import userInfoProgram.User;
+    public class UserDetailsService {
+        private User user1 = new User(1, "Abraham Ama", 30000);
+        private User user2 = new User(2, "Bob Button", 50000);
+        private User user3 = new User(3, "Carol Carter", 20000);
+
+    public void displayAllUsers1() {
+        user1.printUserDetails();
+        user2.printUserDetails();
+        user3.printUserDetails();
+}
 
     public void displayAllUsers() {
-        int[] indices = {0, 1, 2};
-        for (int i : indices) {
-            int userId = userIds[i];
-            String userName = userNames[i];
-            String department = departments[i];
-            float salary = salaries[i];
-
-            System.out.println("userid: " + userId + ", User name: " + userName + ", Department: " + department + ", Salary: " + salary);
+        User[] users = {user1, user2, user3};
+        for (User user: users) {
+            user.printUserDetails();
         }
     }
-
     public void displayUserInfo(int userId) {
         boolean isValidUserId = false;
+        User[] users = {user1, user2, user3};
+
         int i = 0;
-        while (i < userIds.length) {
-            if (userId == userIds[i]) {
+        while (i < users.length) {
+            User user = users[i];
+            if (userId == user.getId()) {
                 isValidUserId = true;
-
-                String userName = userNames[i];
-                String department = departments[i];
-                float salary = salaries[i];
-
-                System.out.println("userid: " + userId + ", User name: " + userName + ", department: " + department + ", salary:" + salary);
+                user.printUserDetails();
 
                 break;
             }
