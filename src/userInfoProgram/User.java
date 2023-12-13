@@ -1,4 +1,6 @@
 package userInfoProgram;
+import java.util.Objects;
+
 public class User {
     private int id;
     private String name;
@@ -28,8 +30,31 @@ public class User {
         return salary;
     }
 
+
     public void printUserDetails() {
         System.out.println("user id: " + id + "name: " + name + "salary: " + salary);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        User otherUser = (User) obj;
+
+        return id == otherUser.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
 }
+
+
