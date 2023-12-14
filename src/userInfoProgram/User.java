@@ -1,41 +1,42 @@
 package userInfoProgram;
-import java.util.Objects;
+
 
 public class User {
     private int id;
     private String name;
-    private double salary;
+    private ContactDetails contactDetails;
 
-    public User(int id, String name, double salary) {
+    public User(int id, String name, ContactDetails contactDetails) {
         this.id = id;
         this.name = name;
-        this.salary = salary;
+        this.contactDetails = contactDetails;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public int getId() {
         return id;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
-    }
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-    public double getSalary() {
-        return salary;
     }
 
 
     public void printUserDetails() {
-        System.out.println("user id: " + id + "name: " + name + "salary: " + salary);
+        System.out.println("user id: " + id + " name: " + name + " telephone: " + contactDetails.getTelephone() + " address: " + contactDetails.getAddress() + " email: " + contactDetails.getEmail());
     }
+}
 
-    @Override
+
+
+   /* @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -53,8 +54,8 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
+    } */
 
-}
+
 
 
